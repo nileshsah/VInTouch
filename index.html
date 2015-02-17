@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+
+<html itemscope="" itemtype="http://schema.org/Product" style="height: 100%;"><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+        <title>VInTouch</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1.0, width=device-width, maximum-scale=1.0">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+		<link rel="shortcut icon" href="http://www.iconj.com/ico/b/h/bhy2nbw3fr.ico" type="image/x-icon" />
+		<script src="http://vintouch.ap01.aws.af.cm/socket.io/socket.io.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="https://dl.dropboxusercontent.com/s/dvgawqx8gqni67o/android.css" media="only screen and (max-width: 480px)" />
+		<link rel="stylesheet" type="text/css" href="https://dl.dropboxusercontent.com/s/nz6ssn1jrami2fx/style.css" media="screen and (min-width: 481px)" />
+		<meta name="viewport" content="user-scalable=no, width=device-width" />
+		
+   </head>
+   
+ <!-- http://s12.postimg.org/p2psj0w0t/VIn_Touch_II.png -->
+    <body data-twttr-rendered="true" class="inconversation" onunload = pagequit(); style="position: relative; min-height: 100%; top: 0px;">
+      <div id="header" style="background: #ecf0f1;">
+			 <div id="logo2"><img src="http://s12.postimg.org/p2psj0w0t/VIn_Touch_II.png" /></div>
+             <div id="onlinecount2" > </div>
+	  </div>
+	  
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+<div class="bottom" style="padding: 8px;"><div class="started-activity-container"><hr style="color: #CCC; background-color: #CCC; height: 1px; border: none;"><div class="activity-root"></div></div></div><div class="status-message" style="display: none;"></div></div><div class="chatbox3"><div class="chatbox2"><div class="chatbox"><div class="logwrapper" style="top: 81px;"><div class="logbox"><div style="position: relative; min-height: 100%;">
+<div class="logitem"><p class="statuslog">Loading...</p></div></div></div><div class="logwrapperpush"></div></div>
+<div class="controlwrapper" ><table class="controltable" cellpadding="0" cellspacing="0" border="0" style="height: 40%; "><tbody><tr><td class="disconnectbtncell">
+<div class="disconnectbtnwrapper" onclick = stopchat(); ><button class="disconnectbtn">Stop<div class="btnkbshortcut">Esc</div></button></div></td>
+<td class="chatmsgcell"><div class="chatmsgwrapper">
+<textarea class="chatmsg" cols="80" rows="3"></textarea></div></td>
+<td class="sendbthcell"><div class="sendbtnwrapper" onclick = sendmsg(); ><button class="sendbtn" >New<div class="btnkbshortcut">Enter</div></button>
+</div></td></tr></tbody></table></div></div></div></div>
+<div id="footer" >" A <a href="https://www.facebook.com/ne11ex" target="_blank">Nellex</a> Production " <div class="fb-like" data-href="https://www.facebook.com/vintouch.tk" style="position: relative; top: 0.4em;" data-width="300" data-layout="button_count" data-show-faces="true" data-send="true"></div> </div>
+
+<!-- Start of StatCounter Code for Default Guide -->
+<script type="text/javascript">
+var sc_project=9152005; 
+var sc_invisible=1; 
+var sc_security="cafddb65"; 
+var scJsHost = (("https:" == document.location.protocol) ?
+"https://secure." : "http://www.");
+document.write("<sc"+"ript type='text/javascript' src='" +
+scJsHost+
+"statcounter.com/counter/counter.js'></"+"script>");
+</script>
+
+<!-- End of StatCounter Code for Default Guide -->
+
+  <script>
+  
+ if (!jQuery) 
+ {  
+   alert(" Whoops ! It seems that your browser does not support jQuery or web sockets...Try again with your default browser !");
+ }
+ 
+ var warn = 1;
+ var socket = io.connect();
+ var message;
+ var msgcount = 0;
+ var userid;
+ var ready = 0;
+ 
+ $('.logitem').empty();
+ $('.logitem').append('<p class="statuslog">Connecting you to our backend server, Please hold on..     -___-<br> Meanwhile, Please LIKE our page and spread the word www.vintouch.tk :D</p>');	
+ $('.chatmsg').attr('readonly','readonly');
+ $('.sendbtn').html('....<div class="btnkbshortcut">Enter</div>');
+ 
+  socket.on('connect', function(){
+		socket.emit('adduser');
+		$('.logitem').empty();
+		$('.chatmsg').attr('readonly','readonly');
+		$('.logitem').append('<p class="statuslog">Welcome To VInTouch ! Click New to get started ...<br>OR Join in our fb page <a href="https://www.facebook.com/vintouch.tk"  target="_blank">VInTouch.tk</a> for Trolls, Discussion and more..</p>');	
+		ready = 1;
+		$('.sendbtn').html('New<div class="btnkbshortcut">Enter</div>');
+        $('.disconnectbtn').html('Stop<div class="btnkbshortcut">Esc</div>'); 
+		$('.chatmsg').attr('readonly', true);   
+	});
+	
+
+ socket.on('updatechat', function (username, data) {
+    
+	
+		 
+	if(username == "server")
+	{
+		if( data == "waiting" )
+		{   $('.logitem').empty(); $('.logitem').append('<p class="statuslog">Finding you a stranger from VIT... :D<br> <hr></hr> Join us at facebook <a href="https://www.facebook.com/vintouch.tk"  target="_blank">@VInTouch.tk</a></p>');	}
+		else if( data == "connected" )
+		{  $('.logitem').empty();
+           $('.logitem').append("<p class='statuslog'>You're now chatting with a random VITian. Say hi!</p>");
+		   $(document).attr('title', '('+msgcount+') VInTouch'); 
+		   $('.chatmsg').attr('readonly', false);
+		   $('.sendbtn').html('Send<div class="btnkbshortcut">Enter</div>');
+		   changeTitle();
+		}
+		else if( data == "disconnect" )
+		{  $('.logitem').append("<p class='statuslog'>Stranger has disconnected. Click New to talk to a new VITian.</p>");
+		   msgcount = 0;
+		   $(document).attr('title', 'VInTouch'); 
+		   $('.sendbtn').html('New<div class="btnkbshortcut">Enter</div>');
+           $('.disconnectbtn').html('Stop<div class="btnkbshortcut">Esc</div>'); 
+		   $('.chatmsg').attr('readonly', true);
+		   message = '';
+		   changeTitle();
+		}
+		else
+		{
+			$('#onlinecount2').text(data + ' VITians Online ');
+		}
+	
+	}
+	else if( username == 'username' )
+	{ userid = data;	}
+	
+	else
+	{
+	 if ( username == userid )
+		{	$('.logitem').append('<p class="youmsg"><b style= "color: blue;">You:</b> ' + data + '</p>'); }
+	  else
+		{ changeTitle(); $('.logitem').append('<p class="strangermsg"><b style="color: red;">Stranger:</b> ' + data + '</p>');
+		  msgcount++; 
+		  $(document).attr('title', '('+msgcount+') VInTouch'); 
+		}
+		
+	}
+	
+		var psconsole = $('.logbox');
+	    psconsole[0].scrollTop = psconsole[0].scrollHeight;
+	
+	});
+	
+
+function changeTitle() {
+    var title = $(document).attr('title'); 
+    if (title.indexOf(">>>") == -1) {
+        setTimeout(changeTitle, 300);  
+        $(document).attr('title', '>'+title);
+	  }
+	  else
+	  { $(document).attr('title', '('+msgcount+') VInTouch'); }
+}
+
+	
+setInterval(function() {
+      
+	  if (!socket.socket.connected && ready == 1) 
+     {
+	   alert("Duh ! It seems you have lost connection to server :( Click OK to get started again..");
+	   warn = 0;
+	   location.reload();
+	   return;
+     }
+	 
+	 socket.emit('counter');
+}, 6000);
+	
+ function sendmsg()
+ {    
+	if (!socket.socket.connected && ready == 1) 
+     {
+	   alert("Duh ! It seems you have lost connection to server :( Click OK to get started again..");
+	   warn = 0;
+	   location.reload();
+	   ready = 0;
+	   return;
+     }
+	 
+	if( $('.sendbtn').text() == "SendEnter" && $('.chatmsg').val() != '')
+		{   
+			message = $('.chatmsg').val();
+			if($('.chatmsg').val().length > 1)
+		   {	 
+			msgcount = 0;
+			$(document).attr('title', '('+ msgcount + ') VInTouch'); 
+			$('.chatmsg').val('');
+			socket.emit('sendchat', message);
+			 if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) 
+			 { $('.logitem').focus(); }
+             else { $('.chatmsg').focus(); }
+		   }
+		   
+		}
+	else if( $('.sendbtn').text() == "NewEnter" && ready == 1)
+		{
+		    socket.emit('newconn'); 
+			$('.sendbtn').html('Waiting<div class="btnkbshortcut">Enter</div>');
+					  
+		}
+		
+		
+}
+
+function stopchat()
+{
+  if (!socket.socket.connected) 
+     {
+	   alert("Duh ! It seems you have lost connection to server :( Click OK to get started again..");
+	    location.reload();
+	   return;
+     }
+	 
+ if( $('.sendbtn').text() == "SendEnter" )
+  {
+     if( $('.disconnectbtn').text() == "StopEsc" )
+	 { $('.disconnectbtn').html('Really?<div class="btnkbshortcut">Esc</div>'); }
+	 else
+	 { 
+	   socket.emit('stopchat');
+	       $('.logitem').append("<p class='statuslog'>You have disconnected. Click New to talk to a new VITian.</p>");
+		   $('.sendbtn').html('New<div class="btnkbshortcut">Enter</div>');
+           $('.disconnectbtn').html('Stop<div class="btnkbshortcut">Esc</div>'); 
+			
+		   $('.chatmsg').attr('readonly', true);
+		   message = '';
+		   
+	  }
+			
+  }
+}
+
+
+$(window).bind('beforeunload', function() {
+	if( warn == 1)
+	   { return 'Do you really want to leave?' ; }
+});
+
+$(window).unload( function () { socket.emit('stopchat'); socket.emit('disconnect'); socket.disconnect(); } );
+
+$(document).ready(function(){
+   $([window, document]).focusin(function(){
+     msgcount = 0;
+	 $(document).attr('title', 'VInTouch'); 
+   }).focusout(function(){
+      $(document).attr('title', '('+msgcount+') VInTouch'); 
+   });
+});
+	
+  
+  $(document).keypress(function(e) {
+    
+	if(e.which == 13) 
+	 {	sendmsg(); }
+    
+	if(e.which == 27) 
+	 {	stopchat(); }
+   });
+
+    
+ </script>
+
+ 
+</body>
+</html>

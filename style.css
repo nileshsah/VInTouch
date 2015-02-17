@@ -1,0 +1,44 @@
+html{height:100%} 
+body{margin:0;padding:0;background:#EEE url(/static/headbg.png) left 65px repeat-x;height:100%;font-family:Helvetica,Arial,sans-serif} 
+#header{position:relative;padding:8px .5em 0 .5em;background:white} 
+#logo{margin:0;padding:0;float:left;font-size:1em;margin-left:.5em;margin-right:5em} 
+#logo img{display:block}
+#logo2 {position:relative; height: 80%; width: auto;  background: #ecf0f1;}
+#tagline{margin:0;padding:0} 
+#tagline img{display:block} 
+#onlinecount2{float: right; position: absolute; right: 10px; top: 25px; font-size: 20pt; font-color: "rgb(95,158,160)";}
+#onlinecount{font-family:'Trebuchet MS','Gill Sans',sans-serif;font-size:1.5em;color:#9cf;position:absolute;right:.333333em;bottom:0} 
+#onlinecount strong{font-size:1.3333333333333333333333em;color:#6cb5ff} 
+img{border:0 none} 
+.logwrapper{border:1px solid #CCC;border-top-left-radius:.5em;border-top-right-radius:.5em;-moz-border-radius-topleft:.5em;-moz-border-radius-topright:.5em;-webkit-border-top-left-radius:.5em;-webkit-border-top-right-radius:.5em;background:white;position:absolute;left:.5em;right:.5em;bottom:7.5em;_width:96%;_height:250px} 
+.logbox{position:absolute;top:.5em;bottom:0;left:.5em;right:0;overflow: auto; _width:97%;_height:230px} 
+.controlwrapper{position:absolute;bottom:2em;left:.5em;right:.5em;height:5em} 
+.controltable{border-collapse:separate;border-spacing:0} 
+.disconnectbtnwrapper{overflow:hidden;margin-right:.5em;border:1px solid #CCC;border-bottom-left-radius:.5em;-moz-border-radius-bottomleft:.5em;-webkit-border-bottom-left-radius:.5em;background:white} 
+.disconnectbtn{font-family:sans-serif;font-size:1em;background:transparent;width:7em;height:5em;padding:0;margin:0;border:0 none;border-bottom-left-radius:.5em;-moz-border-radius-bottomleft:.5em;-webkit-border-bottom-left-radius:.5em} 
+.disconnectbtnwrapper.newbtn{background:#409ffe;background-image:-o-linear-gradient(top,#80c0ff 0,#017ffe 100%);background-image:-moz-linear-gradient(top,#80c0ff 0,#017ffe 100%);background-image:-webkit-gradient(linear,0 0,0 100%,from(#80c0ff),to(#017ffe));background-image:-webkit-linear-gradient(top,#80c0ff 0,#017ffe 100%);background-image:-ms-linear-gradient(top,#80c0ff 0,#017ffe 100%);background-image:linear-gradient(top,#80c0ff 0,#017ffe 100%);color:white} 
+.newbtn .disconnectbtn{color:white;font-weight:bold} 
+.reallybtn .disconnectbtn{font-weight:bold} 
+.sendbtnwrapper{overflow:hidden;margin-left:.5em;border:1px solid #CCC;border-bottom-right-radius:.5em;-moz-border-radius-bottomright:.5em;-webkit-border-bottom-right-radius:.5em} 
+.sendbtn{font-family:sans-serif;font-size:1em;background:white;width:7em;height:5em;padding:0;margin:0;border:0 none;border-bottom-right-radius:.5em;-moz-border-radius-bottomright:.5em;-webkit-border-bottom-right-radius:.5em} 
+.chatmsgcell{width:100%} 
+.chatmsgwrapper{background:white;border:1px solid #CCC;height:4.5em;padding:.25em} 
+.chatmsg{width:100%;background:white;font-family:sans-serif;font-size:1em;border:0 none;padding:0;margin:0;height:4.5em;font-size:1em;overflow:auto;-webkit-appearance:none;border-radius:0;-webkit-border-radius:0} 
+.youmsg,.strangermsg{margin:0;padding:0} 
+.youmsg .msgsource{color:blue;font-weight:bold} 
+.strangermsg .msgsource{color:red;font-weight:bold} 
+.statuslog{color:#555;font-size:.9em;font-weight:bold;margin:0;padding:0} 
+.logitem{padding-bottom:.5em} 
+textarea:focus{outline:0} 
+#chatbtnwrapper{padding-bottom:.7em;text-align:center} 
+#EFF{margin-left:.5em;text-align:center;color:#AAA;font-size:.8em} 
+#EFF a{color:#7474dc;text-decoration:none} 
+.btnkbshortcut{font-size:.8em;color:#9cf;font-weight:bold;margin-top:.25em;height:0;overflow:show} 
+:disabled .btnkbshortcut,[disabled] .btnkbshortcut{color:#a1c3e6} 
+.questionHeading{font-size:.9em;padding:.1111111111111111111em;padding-left:1.11111111111111111em;background:#6cb5ff;color:#DEF;font-weight:bold;border-top-left-radius:.5em;-moz-border-radius-topleft:.5em;-webkit-border-top-left-radius:.5em;border-top-right-radius:.5em;-moz-border-radius-topright:.5em;-webkit-border-top-right-radius:.5em} 
+.collapsed .questionHeading{border-radius:.5em;-webkit-border-radius:.5em;-moz-border-radius:.5em;font-size:1.1em} 
+.question{width:75%} 
+.question.collapsed{cursor:hand;cursor:pointer} 
+.collapsed .questionText{display:none} 
+.questionText{padding:.4em;padding-left:.8em;background:#DEF;font-size:1.25em} 
+#footer{position:absolute; bottom:0.5em; font-family:sans-serif;font-size:10pt; left: 40%; width: 50% } 
